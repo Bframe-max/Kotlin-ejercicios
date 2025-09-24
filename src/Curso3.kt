@@ -1,84 +1,114 @@
-//curso #3
+// =========================
+// EJERCICIO CURSO 3
+// Estructuras de Control + Programación Modular
+// =========================
 
 fun main() {
-    aplicacionDatos()
-    variablesValoresConstantes()
-    tiposDeDatos()
-    operadoresCalculo()
+    println("===== EJERCICIO CURSO 3: ESTRUCTURAS DE CONTROL Y PROGRAMACIÓN MODULAR =====\n")
+
+    // Llamamos a las funciones (módulos)
+    mostrarIntroduccion()
+
+    // Ejemplo con IF-ELSE
+    verificarEdad(17)
+    verificarEdad(25)
+
+    // Ejemplo con WHEN
+    mostrarDiaDeLaSemana(2)
+    mostrarDiaDeLaSemana(6)
+
+    // Ejemplo con FOR
+    imprimirNumerosDel1Al5()
+
+    // Ejemplo con WHILE
+    contarHasta(4)
+
+    // Ejemplo con FOR + IF
+    imprimirParesEImpares(7)
+
+    // Ejemplo con WHEN + rangos
+    evaluarCalificacion(92)
+    evaluarCalificacion(60)
+
+    println("\n===== FIN DEL EJERCICIO CURSO 3 =====")
 }
 
+// ====== MÓDULOS (FUNCIONES) ======
 
-
-fun aplicacionDatos() {
-    println("=== . Aplicación real del uso de datos ===")
-    val nombre = "Denzel"
-    val edad = 22
-    println("Ejemplo: Hola, soy $nombre y tengo $edad años.")
-    println("Un app real puede usar estos datos para registrarte o personalizar tu experiencia.")
-    println()
+// Módulo de introducción
+fun mostrarIntroduccion() {
+    println("Este es un ejemplo del Curso 3.")
+    println("Aquí aplicamos las estructuras de control en funciones modulares.\n")
 }
 
-
-fun variablesValoresConstantes() {
-    println("=== . Variables, Valores y Constantes ===")
-    var variable = 10        // mutable
-    val valor = 20           // inmutable (solo lectura)
-    val constante: Double = 3.1416  // valor fijo
-
-    println("Variable inicial: $variable")
-    variable = 15
-    println("Variable modificada: $variable")
-    println("Valor fijo (val): $valor")
-    println("Constante: $constante")
-    println()
-}
-
-
-//  Tipos de Datos y sus ámbitos
-fun tiposDeDatos() {
-    println("=== 6. Tipos de Datos y sus ámbitos ===")
-
-    // Tipos básicos
-    val entero: Int = 42
-    val decimal: Double = 3.14
-    val flotante: Float = 2.71f
-    val caracter: Char = 'A'
-    val texto: String = "Hola Kotlin"
-    val booleano: Boolean = true
-
-    println("Entero: $entero")
-    println("Decimal: $decimal")
-    println("Flotante: $flotante")
-    println("Caracter: $caracter")
-    println("Texto: $texto")
-    println("Booleano: $booleano")
-
-    // Ámbito (scope)
-    val global = "Estoy en main"
-    fun funcionInterna() {
-        val local = "Solo vivo dentro de funcionInterna"
-        println(global)
-        println(local)
+// Módulo con IF-ELSE
+fun verificarEdad(edad: Int) {
+    println("== Verificar Edad ($edad años) ==")
+    if (edad >= 18) {
+        println("La persona es mayor de edad ✅")
+    } else {
+        println("La persona es menor de edad ❌")
     }
-    funcionInterna()
     println()
 }
 
-// . Operadores de Cálculo
-fun operadoresCalculo() {
-    println("=== . Operadores de Cálculo ===")
-    val a = 12
-    val b = 5
+// Módulo con WHEN
+fun mostrarDiaDeLaSemana(dia: Int) {
+    println("== Mostrar Día de la Semana ==")
+    when (dia) {
+        1 -> println("Lunes")
+        2 -> println("Martes")
+        3 -> println("Miércoles")
+        4 -> println("Jueves")
+        5 -> println("Viernes")
+        6 -> println("Sábado")
+        7 -> println("Domingo")
+        else -> println("Número de día inválido")
+    }
+    println()
+}
 
-    println("Suma: $a + $b = ${a + b}")
-    println("Resta: $a - $b = ${a - b}")
-    println("Multiplicación: $a * $b = ${a * b}")
-    println("División: $a / $b = ${a / b}")   // entero
-    println("División decimal: ${a.toDouble() / b}")
-    println("Módulo (residuo): $a % $b = ${a % b}")
+// Módulo con FOR
+fun imprimirNumerosDel1Al5() {
+    println("== Números del 1 al 5 con FOR ==")
+    for (i in 1..5) {
+        println("Número: $i")
+    }
+    println()
+}
 
-    // Ejemplo: calcular promedio
-    val promedio = (a + b) / 2.0
-    println("Promedio de $a y $b = $promedio")
+// Módulo con WHILE
+fun contarHasta(limite: Int) {
+    println("== Contar hasta $limite con WHILE ==")
+    var contador = 1
+    while (contador <= limite) {
+        println("Contador: $contador")
+        contador++
+    }
+    println()
+}
+
+// Módulo con FOR + IF
+fun imprimirParesEImpares(limite: Int) {
+    println("== Números pares e impares hasta $limite ==")
+    for (i in 1..limite) {
+        if (i % 2 == 0) {
+            println("$i es par")
+        } else {
+            println("$i es impar")
+        }
+    }
+    println()
+}
+
+// Módulo con WHEN y rangos
+fun evaluarCalificacion(calificacion: Int) {
+    println("== Evaluar Calificación ($calificacion) ==")
+    when (calificacion) {
+        in 90..100 -> println("Sobresaliente 🎉")
+        in 70..89 -> println("Bueno 👍")
+        in 0..69 -> println("Necesita mejorar ❌")
+        else -> println("Valor inválido")
+    }
     println()
 }
